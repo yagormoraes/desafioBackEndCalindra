@@ -2,10 +2,10 @@
   "name": "desafio-back-calindra",
   "version": "1.0.0",
   "description": "desafio de back-end de criação de API Rest",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon index.js"
+    "start": "nodemon src/server.js"
   },
   "author": "",
   "license": "ISC",
