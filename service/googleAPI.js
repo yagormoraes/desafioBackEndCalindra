@@ -1,17 +1,27 @@
 import axios from "axios";
 
-class GoogleGeo{
-    async coordenadas(end){
-        const endCod = encodeURIComponent(end)
+class GoogleAPI{
+    async coordinates(address){
+        const endCod = encodeURIComponent(address)
         const key = process.env.KEY
         const url = `https://maps.googleapis.com/maps/api/geocode/json?address=${endCod}&key=${key}`
         const response = await axios.get(url)
-        //console.log(response.data);
+        
         return{
-            coord: response.data.results,
-            endereco: end
+            coord: response.data.results[0].geometry.location,
+            given_addres:address,
+            formatted_address:  response.data.results[0].formatted_address
         }
     }
+
+    async coordinatesGroup(...addresses){
+        let ArrayAddress = []
+        for(let i = 0; i<addresses[0].length; i++){
+            let coordValue = await this.coordinates(addresses[0][i])
+            ArrayAddress.push(coordValue)
+        }
+        return ArrayAddress}
 }
 
-export default GoogleGeo
+
+export default GoogleAPI
