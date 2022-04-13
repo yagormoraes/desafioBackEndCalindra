@@ -7,24 +7,29 @@ class geolocationModel{
 
     multipleDistances(array){
         let distanceArray = []
-        for (let i = 0; i< distanceArray.length; i++){
-            for(let j=0; j<distanceArray.length; j++){
-                let calulatedValue = this.euclidianDistance(
-                    array[i].coord.lat,
-                    array[j].coord.lat,
-                    array[i].coord.lng,
-                    array[j].coord.lng
-                )
-                const wayTo = {
-                    start:`${array[i].coordValue}`,
-                    end: `${array[j].coordValue}`
-                }
+        for (let i = 0; i< array.length; i++){
+            for(let j=0; j<array.length; j++){
+                if(i!=j){
+                    let calulatedValue = this.euclidianDistance(
+                        array[i].coord.lat,
+                        array[j].coord.lat,
+                        array[i].coord.lng,
+                        array[j].coord.lng
+                    )
+                    const wayTo = {
+                        start:`${array[i].formatted_address}`,
+                        end: `${array[j].formatted_address}`
+                    }
+                    
+    
+                    const distance = {
+                        way: wayTo,
+                        dist: calulatedValue 
+                    }
+    
+                    distanceArray.push(distance)
 
-                const distance = {
-                    way: wayTo,
-                    dist: calulatedValue 
                 }
-                distanceArray.push(distance)
             }
         }
         return distanceArray
@@ -35,7 +40,7 @@ class geolocationModel{
             if(a.dist < b.dist){return -1}
             else if(a.dist > b.dist){return 1}
             else{ return 0}
-
+            
         })
         return populated
     }

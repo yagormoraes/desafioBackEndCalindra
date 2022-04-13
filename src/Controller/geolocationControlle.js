@@ -7,6 +7,7 @@ const geolocationController = (app) =>{
 
     app.get('/', (req,res)=>{
         const queryValues = Object.values(req.query)
+
         api.coordinatesGroup(queryValues)
         .then((groupBy)=>{
             res.status(200).json(model.itIsLocal(groupBy))
@@ -18,3 +19,4 @@ const geolocationController = (app) =>{
 }
 
 export default geolocationController
+

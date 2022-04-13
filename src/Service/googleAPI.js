@@ -14,13 +14,14 @@ class GoogleAPI{
         }
     }
 
-    async coordinatesGroup(...addresses){
+    async coordinatesGroup(addresses){
         let ArrayAddress = []
-        for(let i = 0; i<addresses[0].length; i++){
-            let coordValue = await this.coordinates(addresses[0][i])
+        for(let i = 0; i<addresses.length; i++){
+            let coordValue = await this.coordinates(addresses[i])
             ArrayAddress.push(coordValue)
         }
-        return ArrayAddress}
+        return ArrayAddress
+    }
 }
 
 
