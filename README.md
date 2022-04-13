@@ -56,9 +56,9 @@ Passo 1 - Clone o repositório:
 git clone https://github.com/yagormorares/desafioBackEndCalindra.git
 ```
 
-Passo 2 - Abra a pasta XX:
+Passo 2 - Abra a pasta:
 ```
-cd nomeDaPasta
+cd desafioBackEndCalindra
 ```
 
 Passo 3 - Instale os pacotes:
