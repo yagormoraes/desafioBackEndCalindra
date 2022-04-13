@@ -1,7 +1,7 @@
 import express from "express";
 import dotenv from 'dotenv'
 import cors from 'cors'
-import geolocationController from "./Controller/geolocationControlle.js";
+import geolocationController from "./Controller/geolocationController.js";
 
 
 dotenv.config()
